@@ -21,10 +21,10 @@ sudo apt-get install default-jdk
 
 After finishing the guide I installed the Apache Tomcat Manager client to help make it easier to deploy web applications to the server. (For more information on Apache Tomcat Manager click here) 
 I have had experience with this in the past and find it a very useful tool when deploying web applications to a linux server. [Here][apache-manager] is a good guide to follow for installing Apache Tomcat Manager on your server. 
-Well thats all for today's post. Hopefully this will help anyone out there who might be having a problem setting up a web server on their Raspberry Pi 2
+Well that's all for today's post. Hopefully this will help anyone out there who might be having a problem setting up a web server on their Raspberry Pi 2
 
-[Raspberry-Pi-2]:      http://www.raspberrypi.org/
-[noobs]:   http://www.raspberrypi.org/downloads/
-[help-article]: http://forum.xda-developers.com/showthread.php?t=1773735
-[guide]: http://www.instructables.com/id/Raspberry-Pi-Web-Server/?ALLSTEPS
-[apache-manager]: https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-ubuntu-14-04-via-apt-get
+[Raspberry-Pi-2]:	http://www.raspberrypi.org/
+[noobs]:   			http://www.raspberrypi.org/downloads/
+[help-article]: 	http://forum.xda-developers.com/showthread.php?t=1773735
+[guide]: 			http://www.instructables.com/id/Raspberry-Pi-Web-Server/?ALLSTEPS
+[apache-manager]: 	https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-ubuntu-14-04-via-apt-get
