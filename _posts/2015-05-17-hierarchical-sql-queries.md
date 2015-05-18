@@ -78,7 +78,11 @@ BEGIN
 	FOR leaves IN leaf_data
 	LOOP
 		v_parent_id := my_package.get_parent(leaves.column_id);
-		FOR parent_data IN (SELECT * FROM table_name WHERE column_id = v_parent_id)
+		FOR parent_data IN (
+			SELECT * 
+			FROM table_name 
+			WHERE column_id = v_parent_id
+		)
 		LOOP
 			UPDATE table_name 
 			SET column_name_1 = parent_data.column_name_1, 
