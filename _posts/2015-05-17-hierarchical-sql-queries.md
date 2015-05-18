@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Hierarchical (Tree) Traversal In Oracle SQL"
-date:   2015-05-017 19:14:20
+date:   2015-05-17 19:14:20
 categories: programming
 ---
 ![sql_tree](https://cloud.githubusercontent.com/assets/11460318/7672895/0343c916-fcd3-11e4-95df-795fb6cecaf6.png)
