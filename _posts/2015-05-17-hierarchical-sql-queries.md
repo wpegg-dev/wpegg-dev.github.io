@@ -36,52 +36,55 @@ to identify all of the rows which were not identifiable as a root. Each part wou
 Once the parent was located and returned to the calling function, an UPDATE was performed to update the current data's columns with the parents information. 
 <br><br>
 <pre>
-	g_parents_list LONG;--this will help us to not create cycles when searching data
-	
-	FUNCTION get_parent(leaf_id IN VARCHAR2) RETURN VARCHAR2 IS
-		v_parent_id VARCHAR2(10);
-		v_return VARCHAR2(10);
-	BEGIN
-		SELECT relational_column INTO v_parent_id
-		FROM table_name
-		WHERE column_id = leaf_id
-		AND relational_column IS NOT NULL;
-		
-		IF v_parent_id IS NOT NULL THEN
-			IF INSRT(g_parents_list,v_parent_id) < 0 THEN
-				g_parents_list := g_parents_list||','||v_parent_id; --by adding the , we ensure that we don't run into a scenario where you have an id between other id's. i.e. you have id=12 and the list has 3124 
-				v_return := my_package.get_parent(v_parent_id);     -- which is two different id's concatenated but will return true but if you have id=12 and the list is 31,24 then we will not get the false-positive.
-			ELSE
-				v_return := v_parent_id;
-				g_parents_list := '';
-				return v_return;
-		ELSE
-			return leaf_id;
-		END IF;
-		
-		EXCEPTION
-			WHEN OTHERS THEN
-				return 'Error';
-	END get_parent;
+g_parents_list LONG;--this will help us to not create cycles when searching data
 
-	PROCEDURE update_hierarchy IS
-		CURSOR leaf_data
-		SELECT * 
-		FROM table_name 
-		WHERE relational_column IS NOT NULL 
-		AND relational_column <> column_id; --This will ensure that we don't run into the cycle problem!
-		v_parent_id VARCHAR2(10);
-	BEGIN
-		FOR leaves IN leaf_data
+FUNCTION get_parent(leaf_id IN VARCHAR2) RETURN VARCHAR2 IS
+	v_parent_id VARCHAR2(10);
+	v_return VARCHAR2(10);
+BEGIN
+	SELECT relational_column INTO v_parent_id
+	FROM table_name
+	WHERE column_id = leaf_id
+	AND relational_column IS NOT NULL;
+	
+	IF v_parent_id IS NOT NULL THEN
+		IF INSRT(g_parents_list,v_parent_id) < 0 THEN
+			g_parents_list := g_parents_list||','||v_parent_id; --by adding the , we ensure that we don't run 
+																--into a scenario where you have an id between other id's. i.e. 
+																--you have id=12 and the list has 3124 which is two different 
+																--id's concatenated but will return true but if you have id=12
+			v_return := my_package.get_parent(v_parent_id);     --and the list is 31,24 then we will not get the false-positive.
+		ELSE
+			v_return := v_parent_id;
+			g_parents_list := '';
+			return v_return;
+	ELSE
+		return leaf_id;
+	END IF;
+	
+	EXCEPTION
+		WHEN OTHERS THEN
+			return 'Error';
+END get_parent;
+
+PROCEDURE update_hierarchy IS
+	CURSOR leaf_data
+	SELECT * 
+	FROM table_name 
+	WHERE relational_column IS NOT NULL 
+	AND relational_column <> column_id; --This will ensure that we don't run into the cycle problem!
+	v_parent_id VARCHAR2(10);
+BEGIN
+	FOR leaves IN leaf_data
+	LOOP
+		v_parent_id := my_package.get_parent(leaves.column_id);
+		FOR parent_data IN (SELECT * FROM table_name WHERE column_id = v_parent_id)
 		LOOP
-			v_parent_id := my_package.get_parent(leaves.column_id);
-			FOR parent_data IN (SELECT * FROM table_name WHERE column_id = v_parent_id)
-			LOOP
-				UPDATE table_name SET column_name_1 = parent_data.column_name_1, column_name_2 = parent_data.column_name_2
-				WHERE column_id = leaves.column_id;
-			END LOOP;
+			UPDATE table_name SET column_name_1 = parent_data.column_name_1, column_name_2 = parent_data.column_name_2
+			WHERE column_id = leaves.column_id;
 		END LOOP;
-	END update_hierarchy;
+	END LOOP;
+END update_hierarchy;
 </pre>
 <br><br>
 Like I said not revolutionary but it was my first experience with such a scenario and it was amazing to see the improvement in performance! If anyone is using large datasets and is running into a problem when trying to do
