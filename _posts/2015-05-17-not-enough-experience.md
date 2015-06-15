@@ -2,7 +2,7 @@
 layout: post
 title:  "Not Enough Experience"
 date:   2015-06-15 17:14:20
-categories: programming
+categories: career
 ---
 Many people are familiar with the old "Sorry, we are looking for someone with more experience" line when looking for a new job. For a freshly minted college graduate you will likely run into this MUCH more than you might anticipate. While I was in college 
 I heard all the time about how there is a shortage of developers out here in the real world and that I am almost guaranteed a job! The fact is that's only partly true. 
