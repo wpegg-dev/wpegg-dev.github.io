@@ -30,6 +30,8 @@ covered you can see all of your code that you have typed in the console. Codecad
 Anyways, I am a little behind in my learning of Ruby because I was sick with kidney stones the last week and a half. Hopefully I can start making up ground on what I missed 
 over the coming few weeks so I can really get into my project!
 
+{% include disqus.html %}
+
 [Raspberry-Pi-2]:	http://www.raspberrypi.org/
 [noobs]:   			http://www.raspberrypi.org/downloads/
 [help-article]: 	http://forum.xda-developers.com/showthread.php?t=1773735

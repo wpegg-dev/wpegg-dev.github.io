@@ -29,3 +29,5 @@ This was a really cool little project to take my mind of just learning Ruby and 
 doing more of these little projects to help learn the language and framework though doing.
 <br><br>
 You can check out the source for my WeatherWidget [here](https://github.com/wpegg-dev/Small-Projects/tree/master/WeatherWidget)!
+
+{% include disqus.html %}

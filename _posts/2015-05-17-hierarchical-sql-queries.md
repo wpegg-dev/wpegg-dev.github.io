@@ -95,3 +95,5 @@ END update_hierarchy;
 <br><br>
 Like I said not revolutionary but it was my first experience with such a scenario and it was amazing to see the improvement in performance! If anyone is using large datasets and is running into a problem when trying to do
 hierarchical data navigation I would ABSOLUTELY recommend going from leave to root if at all possible!
+
+{% include disqus.html %}

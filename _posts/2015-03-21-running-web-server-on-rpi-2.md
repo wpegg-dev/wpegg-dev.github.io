@@ -27,6 +27,8 @@ After finishing the guide I installed the Apache Tomcat Manager client to help m
 I have had experience with this in the past and find it a very useful tool when deploying web applications to a linux server. [Here][apache-manager] is a good guide to follow for installing Apache Tomcat Manager on your server. 
 Well that's all for today's post. Hopefully this will help anyone out there who might be having a problem setting up a web server on their Raspberry Pi 2!
 
+{% include disqus.html %}
+
 [Raspberry-Pi-2]:	http://www.raspberrypi.org/
 [noobs]:   			http://www.raspberrypi.org/downloads/
 [help-article]: 	http://forum.xda-developers.com/showthread.php?t=1773735

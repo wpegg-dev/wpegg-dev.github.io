@@ -24,3 +24,5 @@ Since then I have complete my degree and worked on gaining my knowledge in sever
 
 The point on telling my story is to tell others that there will be times when you may not be able to secure a job doing exactly what you think you want to do. When you first get out of college you might not be able to get that developer role you are so desperately searching 
 for but you just might be able to apply the skills you have learned to another area of IT and then use those skills to get a foot in the door. That's all you need is that little sliver of a hole and once your in you can prove to everyone else just how good you really are!
+
+{% include disqus.html %}
