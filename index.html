@@ -26,11 +26,20 @@
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a id="test-page" class="anchor" href="#test-page" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Test page</h3>
-      </section>
-    </div>
+      <div class="home">
+       <h1 class="page-heading">Posts</h1>
+       <ul class="post-list">
+         {% for post in site.posts %}
+           <li>
+             <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+             <h2>
+               <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+             </h2>
+           </li>
+         {% endfor %}
+       </ul>
+       <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+      </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
