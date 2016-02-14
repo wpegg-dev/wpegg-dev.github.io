@@ -11,6 +11,6 @@ twitter_username: wpegg3
 github_username:  wpegg-dev
 
 # Build settings
-highlighter: pygments
+highlighter: rouge
 markdown: kramdown
 permalink: pretty
