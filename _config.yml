@@ -1,0 +1,16 @@
+# Site settings
+title: This Developers Drive
+email: william.pegg.dev@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  This Developers Drive is a comprehensive discussion of my journey through life
+  as a software developer. I hope my experiences can help others in their journeys
+  as well!
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: wpegg3
+github_username:  wpegg-dev
+
+# Build settings
+highlighter: pygments
+markdown: kramdown
+permalink: pretty
